@@ -1,5 +1,6 @@
-import React from 'react'
 import {Nav, NavLink, Bars, NavMenu} from './Navbar.element';
+import CartWidget from '../CartWidget/CartWidget';
+
 
 const Navbar = () => {
   return (
@@ -19,6 +20,7 @@ const Navbar = () => {
                 <NavLink to="/contact-us" activeStyle>
                     Contact Us
                 </NavLink>
+                <CartWidget/>
             </NavMenu>
         </Nav>
     </>

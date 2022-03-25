@@ -1,14 +1,15 @@
-import React from "react";
 import './App.css';
 import Navbar from "./components/Navbar/Navbar"
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from'./pages';
 import Contact from'./pages/contact.us';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
-function App(){
+const App = () => {
   return (
     <Router>
       <Navbar/>
+      <ItemListContainer greeting = {'Hola !!'}/>
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/contact.us" component={Contact}/>
@@ -18,3 +19,5 @@ function App(){
 }
 
 export default App;
+
+
