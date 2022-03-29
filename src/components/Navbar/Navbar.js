@@ -11,13 +11,13 @@ const Navbar = () => {
             </NavLink>
             <Bars/>
             <NavMenu>
-                <NavLink to="/phone-brands" activeStyle>
+                <NavLink to="/phone-brands">
                     Phone Brands
                 </NavLink>
-                <NavLink to="/tablet-brands" activeStyle>
+                <NavLink to="/tablet-brands">
                     Tablets Brands
                 </NavLink>
-                <NavLink to="/contact-us" activeStyle>
+                <NavLink to="/contact-us">
                     Contact Us
                 </NavLink>
                 <CartWidget/>
