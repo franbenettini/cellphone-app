@@ -4,7 +4,7 @@ const Counter = ({initial, stock, onAdd}) => {
     const [count, setCount] = useState(initial)
 
     const decrement = () => {
-        if ((count > 1)){
+        if ((count > initial)){
             setCount(count-1)
         }
     }

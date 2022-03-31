@@ -2,7 +2,7 @@ import Counter from '../ItemCount/ItemCount';
 
 const ItemListContainer = (props) => {
 
-    const handleOnAdd = (quantity, onAdd) => { 
+    const handleOnAdd = (quantity) => { 
          console.log(`se agregaron ${quantity} productos`)
         
     }
