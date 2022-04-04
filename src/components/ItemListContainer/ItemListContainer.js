@@ -24,7 +24,7 @@ const ItemListContainer = (props) => {
             <h2>{props.greeting}</h2>
             <Counter initial={1} stock={10} onAdd={handleOnAdd}/>
             <Counter initial={1} stock={15} onAdd={handleOnAdd}/>
-            <ItemList products = {products}/>
+            {products.length > 0 ? <ItemList products={products}/> : <h3>Cargando...</h3>}    
         </>
     )
 }
