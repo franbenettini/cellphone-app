@@ -1,31 +1,33 @@
 import { useEffect, useState } from 'react';
 import Counter from '../ItemCount/ItemCount';
 import ItemList from '../ItemList/ItemList';
-import { getProducts } from '../../asyncmock'
+import { getProducts } from '../../asyncmock';
+import { useParams } from 'react-router-dom';
+import './ItemListContainer.css'
 
 const ItemListContainer = (props) => {
 
     const [products, setProducts] = useState([])
 
+    const { categoryId } = useParams()
+
     useEffect (() => {
-        getProducts().then(prods => {
+        getProducts(categoryId ).then(prods => {
             setProducts(prods)
         }).catch( error => {
             console.log(error)
         })
-    }, [])
+    }, [categoryId])
 
     const handleOnAdd = (quantity) => { 
          console.log(`se agregaron ${quantity} productos`)
     }
 
     return(
-        <>
+        <div className='ItemListContainer'>
             <h2>{props.greeting}</h2>
-            <Counter initial={1} stock={10} onAdd={handleOnAdd}/>
-            <Counter initial={1} stock={15} onAdd={handleOnAdd}/>
             {products.length > 0 ? <ItemList products={products}/> : <h3>Cargando...</h3>}    
-        </>
+        </div>
     )
 }
 
