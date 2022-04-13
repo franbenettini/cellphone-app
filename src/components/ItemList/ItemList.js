@@ -3,9 +3,9 @@ import './ItemList.css'
 
 const ItemList = ({products}) => {
     return(
-        <div className='ItemList'>
-            {products.map(prod => <Item key={prod.id} {...prod}/>)}
-        </div>
+            <div className='itemList'>
+                {products.map(prod => <Item key={prod.id} {...prod}/>)}
+            </div>
     )
 }
 
