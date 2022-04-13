@@ -1,0 +1,27 @@
+
+
+.cardContainer{
+    padding-bottom: 2rem;
+}
+
+.card{
+    width: 300px;
+    height: 400px;
+    background-color:white;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 10%), 0 -1px 2px 0 rgb(0 0 0 / 10%);
+    margin: 0 0.8rem 1.6rem 0.8rem;
+    flex-grow: 1;
+    min-height: 100%;
+    position: relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.card:hover{
+    -webkit-box-shadow: 5px 13px 31px 3px rgba(0,0,0,0.32); 
+    box-shadow: 5px 13px 31px 3px rgba(0,0,0,0.32);
+}

@@ -1,18 +1,22 @@
 import { Link } from 'react-router-dom'
-import { Card, ContainerItem } from './Item.element'
+import './Item.css'
 
 const Item = ({ id,name, img,price}) => {
     return (
 
-        <ContainerItem>
-            <Link to={`/item/${id}`} style={{textDecoration: 'none', color:'black'}}>
-                <Card>
-                    <img width="150" height="250" src={img} alt={name}/>
+        <section className='cardContainer'>
+            <Link className='card' to={`/item/${id}`} style={{textDecoration: 'none', color:'black'}}>
+                <div>
+                    <picture>
+                        <img src={img} alt={name}/>
+                    </picture>
+                </div>
+                <div>
                     <h3>{name}</h3>
                     <p>${price}</p>
-                </Card>  
+                </div>
             </Link>
-        </ContainerItem>
+        </section>
         
     )
 }
