@@ -2,6 +2,7 @@ import { getProductsById } from "../../asyncmock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
+import './ItemDetailContainer.css'
 
 
 const ItemDetailContainer = () => {

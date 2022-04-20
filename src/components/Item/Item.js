@@ -11,7 +11,7 @@ const Item = ({ id,name, img,price}) => {
                         <img src={img} alt={name}/>
                     </picture>
                 </div>
-                <div>
+                <div className='cardInfo'>
                     <h3>{name}</h3>
                     <p>${price}</p>
                 </div>

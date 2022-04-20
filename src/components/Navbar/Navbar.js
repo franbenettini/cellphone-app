@@ -15,7 +15,7 @@ const Navbar = () => {
     }, [])
 
     return (
-        <>
+        
             <Nav>
                 <Link to="/">
                     <h1>Smart Shop</h1>
@@ -35,7 +35,6 @@ const Navbar = () => {
                     <CartWidget/>
                 </NavMenu>
             </Nav>
-        </>
     )
 }
 

@@ -1,0 +1,43 @@
+.seccion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:90vh;
+}
+
+.seccionLeft{
+
+}
+
+.seccionLeft picture img{
+    width: 23rem;
+    height: auto;
+    margin-right: 10rem;  
+}
+
+.seccionOne div h3{
+    font-size: 2.3rem;
+    margin-bottom: 1.5rem;
+    
+}
+
+.seccionOne div{
+    margin-top: -2rem;
+}
+
+.seccion .info p{
+    margin-bottom: 2rem;
+}
+
+.seccionOne span{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.seccionOne p{
+    margin-top: 1rem;
+}
+
+.seccionTwo{
+    margin-top: 4rem;
+}

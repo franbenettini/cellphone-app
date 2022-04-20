@@ -21,7 +21,7 @@ const ItemListContainer = (props) => {
 
     return(
         <div>
-            <h2>{props.greeting}</h2>
+            <h2 className='greeting'>{props.greeting}</h2>
             {products.length > 0 ? <ItemList products={products}/> : <h3>Cargando...</h3>}    
         </div>
     )
