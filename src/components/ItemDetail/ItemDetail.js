@@ -35,7 +35,7 @@ const ItemDetail = ({ id, name, img, price, description, stock}) => {
                     <p>Stock disponible: {stock}</p>
                 </div>
                 <div className='seccionTwo'>
-                    { isInCart(id) ? <Link    to='/cart'>Ir al carrito</Link> : <Counter onConfirm={handleAdd} stock={stock}/> } 
+                    {<Counter onConfirm={handleAdd} stock={stock}/> } 
                 </div>
             </section>
         </div>
