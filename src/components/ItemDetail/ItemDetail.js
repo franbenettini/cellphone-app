@@ -1,12 +1,12 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Counter from '../ItemCount/ItemCount'; 
 import './ItemDetail.css'
 import CartContext from '../../context/CartContext';
 
 
-const ItemDetail = ({ id, name, img, price, description, stock}) => {
-    const { addItem, isInCart } = useContext(CartContext)
+const ItemDetail = ({ id, name, img, category, price, description, stock}) => {
+    const { addItem, isInCart, getQuantityProd } = useContext(CartContext)
 
     const handleAdd = (count) =>{
         const productObj = {
@@ -35,7 +35,9 @@ const ItemDetail = ({ id, name, img, price, description, stock}) => {
                     <p>Stock disponible: {stock}</p>
                 </div>
                 <div className='seccionTwo'>
-                    {<Counter onConfirm={handleAdd} stock={stock}/> } 
+                    {
+                        <Counter onConfirm={handleAdd} stock={stock} initial={getQuantityProd(id)}/> 
+                    } 
                 </div>
             </section>
         </div>

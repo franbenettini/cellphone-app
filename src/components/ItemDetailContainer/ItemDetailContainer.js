@@ -7,7 +7,7 @@ import { firestoreDb } from "../../services/firebase";
 import { getDoc, doc } from 'firebase/firestore'
 
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({setCart, cart}) => {
 
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(false)
@@ -27,7 +27,7 @@ const ItemDetailContainer = () => {
             const product = { id: response.id, ...response.data()}
             setProduct(product)
         })
-        
+
 
     }, [productId])
     
@@ -39,7 +39,7 @@ const ItemDetailContainer = () => {
             loading ? 
                 <h1>Cargando...</h1>:
             product ? 
-                <ItemDetail  {...product} /> :
+                <ItemDetail  {...product} setCart={setCart} cart={cart}/>:
                 <h1>El producto no existe</h1> 
         }
     </div>

@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
 //import { getCategories } from '../../asyncmock';
 import { firestoreDb } from '../../services/firebase'
 import { getDocs, collection} from 'firebase/firestore'
+import './Navbar.css'
+
 
 const Navbar = () => {
 
@@ -42,7 +44,7 @@ const Navbar = () => {
                         Contact Us
                     </NavLink>*/}
                     { categories.map(cat => <NavLink key={cat.id} to={`/category/${cat.id}`}>{cat.description}</NavLink>) }
-                    <Link to='/cart'><CartWidget/></Link>
+                    <CartWidget/>
                 </NavMenu>
             </Nav>
     )
