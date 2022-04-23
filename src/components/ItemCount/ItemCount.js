@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './ItemCount.css'
+import CartContext from '../../context/CartContext';
 
 const Counter = ({initial=1, stock, onConfirm}) => {
     const [count, setCount] = useState(initial)
+    const { removeItem } = useContext(CartContext)
 
     const decrement = () => {
-        if ((count > initial)){
+        if ((count > 0)){
             setCount(count-1)
         }
     }
