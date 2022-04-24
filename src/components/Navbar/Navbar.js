@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 //import { getCategories } from '../../asyncmock';
 import { firestoreDb } from '../../services/firebase'
 import { getDocs, collection} from 'firebase/firestore'
+
 import './Navbar.css'
 
 
