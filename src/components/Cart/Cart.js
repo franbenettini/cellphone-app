@@ -1,12 +1,14 @@
 import ItemCart from "../ItemCart/ItemCart"
+import './Cart.css'
+
 
 const Cart = () => {
 
+
     return (
-        <>
-            <h2>Cart</h2>
-            <ItemCart />
-        </>
+        <div>        
+            <ItemCart/>
+        </div>
     )
 }
 

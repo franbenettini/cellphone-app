@@ -9,6 +9,7 @@ import { firestoreDb } from '../../services/firebase';
 const ItemListContainer = (props) => {
 
     const [products, setProducts] = useState([])
+    const [show, setShow] =useState(false)
 
     const { categoryId } = useParams()
 
@@ -29,18 +30,26 @@ const ItemListContainer = (props) => {
                 return { id: doc.id, ...doc.data()}
             })
             setProducts(products)
+            setShow(true)
         })
 
     }, [categoryId])
 
-    if (products.length === 0 ){
-        return <h1>No hay productos</h1>
-    }
-
     return(
         <div>
-            <h2 className='greeting'>{props.greeting}</h2>
-            {products.length > 0 ? <ItemList products={products}/> : <h3>Cargando...</h3>}    
+            {
+            show ?
+                (products.length > 0 ?
+                    <>
+                        <h2 className='greeting'>{props.greeting}</h2>
+                        <ItemList products={products}/>
+                    </>
+                    : 
+                    <h1>No hay productos</h1>
+                ) 
+                :
+                <h3>Cargando...</h3> 
+            }
         </div>
     )
 }

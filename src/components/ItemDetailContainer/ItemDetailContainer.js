@@ -26,21 +26,22 @@ const ItemDetailContainer = ({setCart, cart}) => {
         getDoc(doc(firestoreDb, 'products', productId)).then(response => {
             const product = { id: response.id, ...response.data()}
             setProduct(product)
+            setLoading(true)
         })
-
 
     }, [productId])
     
 
-
+        
   return (
     <div>
-        { 
-            loading ? 
-                <h1>Cargando...</h1>:
-            product ? 
+        {
+            loading ?
+            (product ?
                 <ItemDetail  {...product} setCart={setCart} cart={cart}/>:
-                <h1>El producto no existe</h1> 
+                <h1>El producto no existe</h1>)
+            :
+                <h1>Cargando...</h1>
         }
     </div>
   )
