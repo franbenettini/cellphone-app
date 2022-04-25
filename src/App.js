@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from "./components/Navbar/Navbar"
+import NavBar from "./components/Navbar/Navbar"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
@@ -16,7 +16,7 @@ const App = () => {
     <div>
       <CartContextProvider>
         <BrowserRouter>
-          <Navbar/>
+          <NavBar/>
           <Routes>
             <Route path='/' element={<ItemListContainer greeting = {'Nuestros ultimos Productos'}/>} />
             <Route path='/category/:categoryId' element={<ItemListContainer/>} />
