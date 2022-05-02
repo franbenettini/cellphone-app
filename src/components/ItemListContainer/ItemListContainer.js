@@ -48,7 +48,10 @@ const ItemListContainer = (props) => {
                     <h1>No hay productos</h1>
                 ) 
                 :
-                <h3>Cargando...</h3> 
+                <div className='center'>
+                    <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
+                
             }
         </div>
     )

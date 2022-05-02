@@ -29,19 +29,19 @@ const NavBar = () => {
     }, [])
 
     return (
-        <Navbar expanded={expanded} bg="dark" variant="dark" sticky='top' expand="lg" >
-            <Container>
-                <Navbar.Brand >
-                    <Link to='/' >
-                        <a href="#/"><h1>Smart Shop</h1></a>
+        <Navbar className='navBar' expanded={expanded}  variant="dark" sticky='top' expand="lg" >
+            <Container className='containerNav'>
+                <Navbar.Brand>
+                    <Link to='/' className='logo' >
+                        <h1>Smart Shop</h1>
                     </Link>
                 </Navbar.Brand>
 
                 <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav" className='right-aligned'>
-                    <Nav>
+                    <Nav className='nav'>
                         { categories.map(cat => 
-                        <NavLink onClick={() => setExpanded(false)} key={cat.id} to={`/category/${cat.id}`}>{cat.description}</NavLink>) }
+                        <NavLink className='enlaces' onClick={() => setExpanded(false)} key={cat.id} to={`/category/${cat.id}`}>{cat.description}</NavLink>) }
                     </Nav>
                 </Navbar.Collapse>
                 <CartWidget/>

@@ -17,7 +17,6 @@ const Counter = ({initial=1, stock, onConfirm}) => {
         }
     }
 
-
     return(
         <div className='countButton'>
             <div className='count'>
@@ -25,7 +24,7 @@ const Counter = ({initial=1, stock, onConfirm}) => {
                 <p>{count}</p>
                 <button onClick={increment}>+</button> 
             </div>
-            <button onClick={() => onConfirm(count)}>Agregar al carrito</button>
+            <button onClick={() =>onConfirm(count)}>Agregar al carrito</button>
         </div>
     )
 }

@@ -1,9 +1,8 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import Counter from '../ItemCount/ItemCount'; 
 import './ItemDetail.css'
 import CartContext from '../../context/CartContext';
-
+import {toast, Zoom } from 'react-toastify'
 
 const ItemDetail = ({ id, name, img, category, price, description, stock}) => {
     const { addItem, isInCart, getQuantityProd } = useContext(CartContext)
@@ -14,6 +13,21 @@ const ItemDetail = ({ id, name, img, category, price, description, stock}) => {
         }
 
         addItem (productObj)
+        toast.success(`Se agregaron ${count} ${name} al carrito`, {
+            position: "top-center",
+            autoClose: 3000,
+            transition: Zoom,
+            theme:'colored',
+            style:{
+                color: 'black',
+            },
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            limit:1,
+            });
     }
 
 

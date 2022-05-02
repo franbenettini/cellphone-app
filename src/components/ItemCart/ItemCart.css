@@ -1,87 +1,50 @@
 
 /* Products in Cart*/
 
-
-.cart{
-    margin-top: 5.5rem;
+.itemCart{
+    margin-top: 2rem;
     display: flex;
-    justify-content: center;
+    width: 60%;
+    justify-items: center;
     align-items: center;
-    align-content: center;
-    flex-direction: column;
-    margin-left: 25rem;
-    margin-right: 25rem;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.cart h2{
+
+.containerName{
+    width: 15rem;
+}
+
+.containerName > .name{
     text-align: center;
 }
 
-.checkOut{
-   margin-top: 3rem;
-   margin-bottom: 6rem;
-   background-color: #1689D2;
-}
-
-.butttonsFooter{
-    margin-top: 4rem;
-    display: grid;
-    grid-auto-flow: column;
-    grid-column-gap: 12rem;
-}
-
-.buttonLeft{
-    font-size: 18px;
-}
-
-.buttonRight{
-    font-size: 26px;
-    background-color: #1689D2;
-}
-
-.totalAmount{
-    margin-top: 4rem;
-    display: grid;
-    grid-auto-flow: column;
-    grid-column-gap: 22rem;
-}
-
-.totalAmount span{
-    font-size: 1.5rem;
-}
-
-.products{
+.itemCart > .removeItem{
+    width: 40px;
     display: flex;
-    flex-direction: column;
-}
-
-.prods{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
     justify-content: center;
     align-items: center;
-    align-content: center;
-    margin-bottom: 3rem;
 }
 
-.prods .name{
+.itemCart p {
+    margin-bottom: 0rem;
+}
+
+.removeItem{
+    padding: 10px 15px;
+    margin: 5px;
+}
+
+.name{
     font-size: 2rem;
+    text-align: left;
 }
 
-.prods p{
-    margin-left: 2rem;
-}
-
-.lastColumn{
-    display: flex;
-    gap: 4rem;
-}
-
-.priceContainer{
+.price{
     display: flex;
     flex-direction: column;
 }
-
 
 /* No Products */
 
@@ -107,7 +70,7 @@
     font-weight: bold;
     letter-spacing: 1px;
     border: none;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
 }
    
 @keyframes slidernbw {

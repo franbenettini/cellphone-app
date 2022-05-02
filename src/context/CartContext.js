@@ -1,9 +1,9 @@
 import { createContext, useState } from "react"
-
+import {toast, Zoom } from 'react-toastify'
 
 const CartContext = createContext()
 
-export const CartContextProvider = ({ children }) => {
+export const CartContextProvider = ({ children,name }) => {
     const [cart, setCart] = useState([])
     console.log(cart)
 
@@ -43,9 +43,25 @@ export const CartContextProvider = ({ children }) => {
         setCart([])
     }
 
-    const removeItem = (id) => {
+    const removeItem = (id, name) => {
         const products = cart.filter(prod => prod.id !== id)
         setCart(products)
+        toast.warning(`Se elimino ${name} del carrito`, {
+            position: "top-center",
+            autoClose: 3000,
+            transition: Zoom,
+            theme:'colored',
+            style:{
+                color: 'black',
+            },
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            limit:1,
+            icon:false,
+            });
     }
 
     const getQuantityProd = (id) => {
