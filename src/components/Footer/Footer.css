@@ -1,0 +1,28 @@
+.mainFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+    height: 130px;
+    background-color: #323232;
+    margin-top: 2rem;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.link .enlaces{
+    margin-left: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.link{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+

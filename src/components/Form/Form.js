@@ -3,17 +3,29 @@ import CartContext from "../../context/CartContext"
 import { useContext, useState } from "react"
 import { getDocs, writeBatch, query, where, collection, documentId, addDoc } from 'firebase/firestore'
 import { firestoreDb } from '../../services/firebase/index'
+import { useForm } from "react-hook-form"
+import ErrorMessage from '../ErrorMessage/ErrorMessage'
+import {nameValidations, emailValidations, direccionValidations, telefonoValidations} from '../../utils/validations'
 
 const Form = () => {
 
+    const { handleSubmit, register, formState: {errors} } = useForm();             
     const [input, setInput] = useState('')
     const [loading, setLoading] = useState(false)
-
     const { cart, totalCost, clearCart } = useContext(CartContext)
+    const [buttonDisabled, setButtonDisabled] = useState(true)
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+
+    const onBlurHandler = (event) =>  {
+        if (input.correo === input.mailConfirm) {
+            console.log('hola')
+            setButtonDisabled(false)
+        }
     }
+
+    const handleSubmitForm = (values) => {
+        console.log(values);
+    };
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -28,7 +40,7 @@ const Form = () => {
             buyer: input,
             productsOrder: cart.map(prod => { return ({ id: prod.id, name: prod.name, quantity: prod.quantity, priceUni: prod.price }) }),
             total: totalCost(),
-            date: new Date
+            date: new Date()
         }
 
         const ids = cart.map(prod => prod.id)
@@ -74,21 +86,45 @@ const Form = () => {
         return <span> Se esta generando su orden</span>
     }
 
-
+    
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(handleSubmitForm)}>
             <div>
                 <div className='Form'>
                     <h1>Tus datos</h1>
-                    <label>Nombre: <input type='text' onChange={handleChange} name="nombre" value={input.nombre || ""}/></label>
-                    <label>Email: <input type='text' onChange={handleChange} name="correo" value={input.correo || ""}/></label>
-                    <label>Dirección: <input type='text' onChange={handleChange} name="direccion" value={input.direccion || ""}/></label>
-                    <label>Teléfono:<input type="number" onChange={handleChange} name="telefono" value={input.telefono || ""}/></label>
-                    <button onClick={() => createOrder()} type="button">Finalizar compra</button>
+
+                    <label>Nombre: <input {...register('nombre', nameValidations)} type='text' onChange={handleChange} value={input.nombre || ""}/>
+                    
+                    {errors.nombre ? (<ErrorMessage message= {errors.nombre?.message}/>) : null}
+                    </label>
+
+                    <label>Email: <input {...register('correo', emailValidations)} type='text' onChange={handleChange} value={input.correo || ""}/>
+
+                    {errors.correo ? (<ErrorMessage message= {errors.correo?.message}/>) : null}    
+                    </label>
+
+                    <label>Ingrese nuevamente el Email: <input {...register('mailConfirm', emailValidations)} type='text' onChange={handleChange} onBlur={onBlurHandler} value={input.mailConfirm  || ""}/>
+
+                    {errors.mailConfirm  ? (<ErrorMessage message= {errors.mailConfirm ?.message}/>) : null}    
+                    </label>
+
+                    <label>Dirección: <input {...register('direccion',direccionValidations)} type='text' onChange={handleChange} value={input.direccion || ""}/>
+                    
+                    {errors.direccion ? (<ErrorMessage message= {errors.direccion?.message}/>) : null}
+                    </label>
+
+                    <label>Teléfono:<input {...register('telefono', telefonoValidations)} type="number" onChange={handleChange} value={input.telefono || ""}/>
+                    
+                    {errors.telefono ? (<ErrorMessage message= {errors.telefono?.message}/>) : null}
+                    </label>
+
+
+
+                    <button /* onClick={() => createOrder()} */ /* type="button" */ type="submit" >Finalizar compra</button>
                 </div>
             </div>
         </form>
     )
-}
+} 
 
 export default Form

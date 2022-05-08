@@ -1,4 +1,3 @@
-//import { getProductsById } from "../../asyncmock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
@@ -15,14 +14,6 @@ const ItemDetailContainer = ({setCart, cart}) => {
     const { productId } = useParams()
 
     useEffect (() => {
-        //getProductsById(productId).then(item => {
-            //setProduct(item)
-        //}).catch( error => {
-            //console.log(error)
-        //}).finally(() => {
-            //setLoading(false)
-        //})
-
         getDoc(doc(firestoreDb, 'products', productId)).then(response => {
             const product = { id: response.id, ...response.data()}
             setProduct(product)

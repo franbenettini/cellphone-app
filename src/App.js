@@ -6,16 +6,15 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { CartContextProvider } from './context/CartContext';
 import Cart from './components/Cart/Cart'
 import Footer from "./components/Footer/Footer"
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import Form from './components/Form/Form'
 
 
 const App = () => {
-
-
   return (
 
+  
     <div>
       <CartContextProvider>
         <BrowserRouter>

@@ -5,7 +5,7 @@ import CartContext from '../../context/CartContext';
 import {toast, Zoom } from 'react-toastify'
 
 const ItemDetail = ({ id, name, img, category, price, description, stock}) => {
-    const { addItem, isInCart, getQuantityProd } = useContext(CartContext)
+    const { addItem, getQuantityProd } = useContext(CartContext)
 
     const handleAdd = (count) =>{
         const productObj = {
@@ -49,8 +49,8 @@ const ItemDetail = ({ id, name, img, category, price, description, stock}) => {
                     <p>Stock disponible: {stock}</p>
                 </div>
                 <div className='seccionTwo'>
-                    {
-                        <Counter onConfirm={handleAdd} stock={stock} initial={getQuantityProd(id)}/> 
+                    { 
+                        stock>0?<Counter onConfirm={handleAdd} stock={stock} initial={getQuantityProd(id)}/> :<div>Sin Stock </div>
                     } 
                 </div>
             </section>

@@ -29,7 +29,7 @@ const Cart = () => {
             </div>      
             
             <div className="butttonsFooter">
-                <button className="buttonLeft" onClick={()=> clearCart()}>Vaciar carrito</button>
+                    <button className="buttonLeft" onClick={()=> clearCart()}>Vaciar carrito</button>
                     <div className="orgPruebaCantidad">
                         <div className="totalAmount">
                             <span>Total: </span>

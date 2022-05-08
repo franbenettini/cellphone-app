@@ -22,6 +22,9 @@ body{
     height: 100%;
     overflow-x: hidden;
     overflow-y:auto;
+    position: relative;
+    padding-bottom: 260px;
+    min-height: 100vh;
 }
 
 li {
@@ -42,3 +45,8 @@ span{
     font-family: 'Inter', sans-serif;
     font-weight: 500;
 }
+
+.errorMessage{
+    color: red;
+}
+

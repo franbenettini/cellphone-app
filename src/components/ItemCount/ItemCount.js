@@ -17,6 +17,8 @@ const Counter = ({initial=1, stock, onConfirm}) => {
         }
     }
 
+    
+
     return(
         <div className='countButton'>
             <div className='count'>
