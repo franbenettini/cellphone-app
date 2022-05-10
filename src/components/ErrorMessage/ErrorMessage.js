@@ -1,4 +1,4 @@
-
+import './ErrorMessage.css'
 
 const ErrorMessage = ({message}) => {
     return (

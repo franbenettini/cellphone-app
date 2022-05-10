@@ -6,3 +6,59 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=number] { -moz-appearance:textfield; }
 
+
+.form{
+  display: flex;
+  height: 75vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.containerForm{
+  max-width: 750px;
+  width: 100%;
+  background-color: #323232;
+  padding: 25px 30px;
+  border-radius: 5px;
+}
+
+.containerForm form .checkout{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+form .checkout .inputBox{
+  margin-bottom: 15px;
+  width: calc(100% /2 -20px);
+}
+
+.checkout .inputBox label input{
+  height: 45px;
+  width: 100%; 
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+
+.checkout .inputBox label input:focus,
+.checkout .inputBox label input:valid{
+  border-color: white;
+}
+
+.title h1 {
+  padding-left: 10px;
+  color:white; 
+}
+
+.buttonFinish button{
+  margin-top: 2rem;
+  background-color: #1689D2;
+}

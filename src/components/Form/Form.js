@@ -10,7 +10,7 @@ import {nameValidations, emailValidations, direccionValidations, telefonoValidat
 const Form = () => {
 
     const { handleSubmit, register, formState: {errors} } = useForm();             
-    const [input, setInput] = useState('')
+    const [input, setInput] = useState({nombre: '', correo: '', direccion: '', telefono: '', mailConfirm: '' })
     const [loading, setLoading] = useState(false)
     const { cart, totalCost, clearCart } = useContext(CartContext)
     const [buttonDisabled, setButtonDisabled] = useState(true)
@@ -18,7 +18,7 @@ const Form = () => {
 
     const onBlurHandler = (event) =>  {
         if (input.correo === input.mailConfirm) {
-            console.log('hola')
+            console.log('probando boton')
             setButtonDisabled(false)
         }
     }
@@ -88,42 +88,57 @@ const Form = () => {
 
     
     return (
-        <form onSubmit={handleSubmit(handleSubmitForm)}>
-            <div>
-                <div className='Form'>
-                    <h1>Tus datos</h1>
+            <div className='form'>
+                <div className='containerForm'>
+                    <form onSubmit={handleSubmit(handleSubmitForm)}>
+                        <div className='checkout'>
 
-                    <label>Nombre: <input {...register('nombre', nameValidations)} type='text' onChange={handleChange} value={input.nombre || ""}/>
-                    
-                    {errors.nombre ? (<ErrorMessage message= {errors.nombre?.message}/>) : null}
-                    </label>
+                            <div className='title'>
+                                <h1>Tus datos</h1>
+                            </div>
 
-                    <label>Email: <input {...register('correo', emailValidations)} type='text' onChange={handleChange} value={input.correo || ""}/>
+                            <div className='inputBox'>
+                                <label><input placeholder='Nombre' {...register('nombre', nameValidations)} type='text' onChange={handleChange} value={input.nombre || ""}/>
+                                    
+                                {errors.nombre ? (<ErrorMessage message= {errors.nombre?.message}/>) : null}
+                                </label>
+                            </div>
 
-                    {errors.correo ? (<ErrorMessage message= {errors.correo?.message}/>) : null}    
-                    </label>
+                            <div className='inputBox'>
+                                <label><input placeholder='Correo' {...register('correo', emailValidations)} type='text' onChange={handleChange} value={input.correo || ""}/>
 
-                    <label>Ingrese nuevamente el Email: <input {...register('mailConfirm', emailValidations)} type='text' onChange={handleChange} onBlur={onBlurHandler} value={input.mailConfirm  || ""}/>
+                                {errors.correo ? (<ErrorMessage message= {errors.correo?.message}/>) : null}    
+                                </label>
+                            </div>
 
-                    {errors.mailConfirm  ? (<ErrorMessage message= {errors.mailConfirm ?.message}/>) : null}    
-                    </label>
+                            <div className='inputBox'>
+                                <label><input placeholder='Correo nuevamente' {...register('mailConfirm', emailValidations)} type='text' onChange={handleChange} onBlur={onBlurHandler} value={input.mailConfirm  || ""}/>
 
-                    <label>Dirección: <input {...register('direccion',direccionValidations)} type='text' onChange={handleChange} value={input.direccion || ""}/>
-                    
-                    {errors.direccion ? (<ErrorMessage message= {errors.direccion?.message}/>) : null}
-                    </label>
+                                {errors.mailConfirm  ? (<ErrorMessage message= {errors.mailConfirm ?.message}/>) : null}    
+                                </label>
+                            </div>
 
-                    <label>Teléfono:<input {...register('telefono', telefonoValidations)} type="number" onChange={handleChange} value={input.telefono || ""}/>
-                    
-                    {errors.telefono ? (<ErrorMessage message= {errors.telefono?.message}/>) : null}
-                    </label>
+                            <div className='inputBox'>
+                                <label><input placeholder='Direccion' {...register('direccion',direccionValidations)} type='text' onChange={handleChange} value={input.direccion || ""}/>
+                                    
+                                {errors.direccion ? (<ErrorMessage message= {errors.direccion?.message}/>) : null}
+                                </label>
+                            </div>
+                                
+                            <div className='inputBox'>
+                                <label><input placeholder='Telefono' {...register('telefono', telefonoValidations)} type="number" onChange={handleChange} value={input.telefono || ""}/>
+                                    
+                                {errors.telefono ? (<ErrorMessage message= {errors.telefono?.message}/>) : null}
+                                </label>
+                            </div>
 
-
-
-                    <button /* onClick={() => createOrder()} */ /* type="button" */ type="submit" >Finalizar compra</button>
+                            <div className='buttonFinish'>
+                                <button onClick={() => createOrder()}  type="submit" /* disabled={buttonDisabled} */ >Finalizar compra</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
     )
 } 
 
