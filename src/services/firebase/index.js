@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.REACT_APP_authDomain,
-  projectId: process.env.REACT_APP_proyectId,
-  storageBucket: process.env.REACT_APP_storageBucket,
-  messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  appId: process.env.REACT_APP_appId
+  apiKey: "AIzaSyA30kYNj8n-Sb5pK3T9Tjsr9zVI584AYPk",
+  authDomain: "smart-shop-35346.firebaseapp.com",
+  projectId: "smart-shop-35346",
+  storageBucket: "smart-shop-35346.appspot.com",
+  messagingSenderId: "521247928418",
+  appId: "1:521247928418:web:885549315e6444bf74613b"
 };
 
 const app = initializeApp(firebaseConfig);

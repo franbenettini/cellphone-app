@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import './ItemDetailContainer.css'
 import { firestoreDb } from "../../services/firebase";
 import { getDoc, doc } from 'firebase/firestore'
-
+import Spinner from '../Spinner/Spinner'
 
 const ItemDetailContainer = ({setCart, cart}) => {
 
@@ -32,9 +32,7 @@ const ItemDetailContainer = ({setCart, cart}) => {
                 <ItemDetail  {...product} setCart={setCart} cart={cart}/>:
                 <h1>El producto no existe</h1>)
             :
-            <div className='center'>
-                <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-            </div>
+            < Spinner />
         }
     </div>
   )

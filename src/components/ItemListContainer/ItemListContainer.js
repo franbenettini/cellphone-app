@@ -3,6 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import './ItemListContainer.css'
 import { getProducts } from '../../services/firebase/firestore';
+import Spinner from '../Spinner/Spinner'
 
 const ItemListContainer = (props) => {
 
@@ -44,10 +45,7 @@ const ItemListContainer = (props) => {
                     <h1>No hay productos</h1>
                 ) 
                 :
-                <div className='center'>
-                    <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-                </div>
-                
+                < Spinner />
             }
         </div>
     )

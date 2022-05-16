@@ -3,7 +3,7 @@ import {toast, Zoom } from 'react-toastify'
 
 const CartContext = createContext()
 
-export const CartContextProvider = ({ children,name }) => {
+export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([])
     console.log(cart)
 

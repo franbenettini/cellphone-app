@@ -6,10 +6,8 @@ const Item = ({ id,name, img,price}) => {
 
         <section className='cardContainer'>
             <Link className='card' to={`/item/${id}`} style={{textDecoration: 'none', color:'black'}}>
-                <div>
-                    <picture>
-                        <img src={img} alt={name}/>
-                    </picture>
+                <div className='itemImg'>
+                    <img src={img} alt={name}/>
                 </div>
                 <div className='cardInfo'>
                     <h3>{name}</h3>

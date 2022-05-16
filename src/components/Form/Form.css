@@ -9,7 +9,7 @@ input[type=number] { -moz-appearance:textfield; }
 
 .form{
   display: flex;
-  height: 75vh;
+  height: 65vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -61,4 +61,40 @@ form .checkout .inputBox{
 .buttonFinish button{
   margin-top: 2rem;
   background-color: #1689D2;
+}
+
+
+.completeOrder{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 65vh;
+}
+
+.completeOrder h3{
+  text-decoration: none;
+  padding: 15px;
+  color: black;
+  margin: 20px 0;
+}
+
+.completeOrder a{
+  text-decoration: none;
+  background-color: #1689D2;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: none;
+  margin-top: 2.5rem;
+}
+
+.completeOrder a:hover {
+  color: #fff;
+  background-color: #444141;
 }

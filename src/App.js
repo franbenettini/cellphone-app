@@ -9,7 +9,7 @@ import Footer from "./components/Footer/Footer"
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import Form from './components/Form/Form'
-
+import NotFound from './components/NotFound/NotFound'
 
 const App = () => {
   return (
@@ -20,9 +20,9 @@ const App = () => {
         <BrowserRouter>
           <NavBar/>
           <Routes>
-            <Route path='/' element={<ItemListContainer greeting = {'Nuestros ultimos Productos'}/>} />
+            <Route path='/' element={<ItemListContainer greeting = {'Nuestros Productos'}/>} />
             <Route path='/category/:categoryId' element={<ItemListContainer/>} />
-            <Route path='/*' element={<h1>NOT FOUND 404</h1>} />
+            <Route path='/*' element={<NotFound/>} />
             <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
             <Route path='/form' element={<Form />}/>
             <Route path='/cart' element={<Cart/>}/>

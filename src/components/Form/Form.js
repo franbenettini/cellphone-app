@@ -6,22 +6,25 @@ import { firestoreDb } from '../../services/firebase/index'
 import { useForm } from "react-hook-form"
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import {nameValidations, emailValidations, direccionValidations, telefonoValidations} from '../../utils/validations'
+import { Link } from 'react-router-dom'
+import Spinner from '../Spinner/Spinner'
 
 const Form = () => {
 
     const { handleSubmit, register, formState: {errors} } = useForm();             
     const [input, setInput] = useState({nombre: '', correo: '', direccion: '', telefono: '', mailConfirm: '' })
     const [loading, setLoading] = useState(false)
+    const [orderId, setOrderId] = useState(null)
     const { cart, totalCost, clearCart } = useContext(CartContext)
-    const [buttonDisabled, setButtonDisabled] = useState(true)
+   /*  const [buttonDisabled, setButtonDisabled] = useState(true) */
 
 
-    const onBlurHandler = (event) =>  {
+    /* const onBlurHandler = (event) =>  {
         if (input.correo === input.mailConfirm) {
             console.log('probando boton')
             setButtonDisabled(false)
         }
-    }
+    } */
 
     const handleSubmitForm = (values) => {
         console.log(values);
@@ -33,7 +36,7 @@ const Form = () => {
         setInput(values => ({ ...values, [name]: value }))
     }
 
-    const createOrder = () => {
+    const createOrder = (e) => {
         setLoading(true)
 
         const objOrder = {
@@ -72,8 +75,9 @@ const Form = () => {
                 }
             }).then(({ id }) => {
                 batch.commit()
+                const orderId = id
                 clearCart()
-                console.log(`El id de la orden es ${id}`)
+                return setOrderId(orderId)
             }).catch(error => {
                 console.log(error)
             }).finally(() => {
@@ -82,8 +86,26 @@ const Form = () => {
 
     }
 
+    if (orderId) {
+        return (
+             <div className='completeOrder'>
+                <h2> CONFIRMACIÓN </h2>
+                <p> Su pedido ha sido enviado correctamente </p>
+                <h3> Nro orden: { orderId }</h3>
+                <div>
+                    <Link to='/'> Volver al inicio </Link>
+                </div>
+            </div>
+        )
+    }
+
     if (loading) {
-        return <span> Se esta generando su orden</span>
+        return (
+            <div className='completeOrder'>
+                <span> Se esta generando su orden</span>
+                < Spinner />
+            </div>
+        )
     }
 
     
@@ -112,9 +134,9 @@ const Form = () => {
                             </div>
 
                             <div className='inputBox'>
-                                <label><input placeholder='Correo nuevamente' {...register('mailConfirm', emailValidations)} type='text' onChange={handleChange} onBlur={onBlurHandler} value={input.mailConfirm  || ""}/>
+                                <label><input placeholder='Correo nuevamente' {...register('mailConfirm', emailValidations)} type='text' onChange={handleChange} /* onBlur={onBlurHandler} */ value={input.mailConfirm  || ""}/>
 
-                                {errors.mailConfirm  ? (<ErrorMessage message= {errors.mailConfirm ?.message}/>) : null}    
+                                {errors.mailConfirm  ? (<ErrorMessage message= {errors.mailConfirm?.message}/>) : null}    
                                 </label>
                             </div>
 
@@ -133,7 +155,7 @@ const Form = () => {
                             </div>
 
                             <div className='buttonFinish'>
-                                <button onClick={() => createOrder()}  type="submit" /* disabled={buttonDisabled} */ >Finalizar compra</button>
+                                <button /* onClick={() => createOrder()} */  type="submit" /* disabled={buttonDisabled} */ >Finalizar compra</button>
                             </div>
                         </div>
                     </form>
