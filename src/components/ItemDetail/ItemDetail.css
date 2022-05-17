@@ -5,6 +5,9 @@
     min-height:90vh;
 }
 
+.seccionRight{
+    max-width: 35rem;
+}
 
 .seccionLeft picture img{
     width: 23rem;

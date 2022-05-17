@@ -10,12 +10,16 @@ import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import Form from './components/Form/Form'
 import NotFound from './components/NotFound/NotFound'
+import { Helmet } from "react-helmet"
+
 
 const App = () => {
   return (
-
-  
     <div>
+      <Helmet>
+        <title>Smart Shop</title>
+        <link rel="icon" href="./images/favicon.png" />
+      </Helmet>
       <CartContextProvider>
         <BrowserRouter>
           <NavBar/>
