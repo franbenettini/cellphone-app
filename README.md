@@ -22,6 +22,11 @@ npm start
 - CSS
 - JavaScript
 - React
+
+## Demostracion del sitio
+
+![image](https://github.com/franbenettini/cellphone-app/public/gif/SmartShop.gif)
+
 ## Dependencias NPM
 
  - [React-icons](https://react-icons.github.io/react-icons/) - Utilizacion en el icono del cart
