@@ -25,7 +25,7 @@ npm start
 
 ## Demostracion del sitio
 
-![image](https://github.com/franbenettini/cellphone-app/public/gif/SmartShop.gif)
+[alt](https://github.com/franbenettini/cellphone-app/public/gif/SmartShop.gif)
 
 ## Dependencias NPM
 
