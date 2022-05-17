@@ -9,22 +9,28 @@ import {nameValidations, emailValidations, direccionValidations, telefonoValidat
 import { Link } from 'react-router-dom'
 import Spinner from '../Spinner/Spinner'
 
+
+
 const Form = () => {
 
-    const { handleSubmit, register, formState: {errors} } = useForm();             
-    const [input, setInput] = useState({nombre: '', correo: '', direccion: '', telefono: '', mailConfirm: '' })
+    const { handleSubmit, register, watch, formState: {errors} } = useForm({
+        mode:'onTouched'
+    });             
+    const [input, setInput] = useState({nombre: '', correo: '', mailConfirm: '', direccion: '', telefono: '' })
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState(null)
     const { cart, totalCost, clearCart } = useContext(CartContext)
-   /*  const [buttonDisabled, setButtonDisabled] = useState(true) */
+    
+    const email = watch('correo')
 
+    const nombre = watch('nombre')
+    const correo = watch('correo')
+    const mailConfirm = watch('mailConfirm')
+    const direccion = watch('direccion')
+    const telefono = watch('telefono')
 
-    /* const onBlurHandler = (event) =>  {
-        if (input.correo === input.mailConfirm) {
-            console.log('probando boton')
-            setButtonDisabled(false)
-        }
-    } */
+    const isValid = nombre && correo && mailConfirm && direccion && telefono
+
 
     const handleSubmitForm = (values) => {
         console.log(values);
@@ -35,6 +41,8 @@ const Form = () => {
         const value = event.target.value;
         setInput(values => ({ ...values, [name]: value }))
     }
+
+
 
     const createOrder = (e) => {
         setLoading(true)
@@ -134,7 +142,10 @@ const Form = () => {
                             </div>
 
                             <div className='inputBox'>
-                                <label><input placeholder='Correo nuevamente' {...register('mailConfirm', emailValidations)} type='text' onChange={handleChange} /* onBlur={onBlurHandler} */ value={input.mailConfirm  || ""}/>
+                                <label><input placeholder='Correo nuevamente' {...register('mailConfirm', { required: 'Confirmar Email',
+                                    validate: (value) =>
+                                    value === email || "El email no es igual",
+                                })} type='text' onChange={handleChange} value={input.mailConfirm  || ""}/>
 
                                 {errors.mailConfirm  ? (<ErrorMessage message= {errors.mailConfirm?.message}/>) : null}    
                                 </label>
@@ -155,7 +166,7 @@ const Form = () => {
                             </div>
 
                             <div className='buttonFinish'>
-                                <button /* onClick={() => createOrder()} */  type="submit" /* disabled={buttonDisabled} */ >Finalizar compra</button>
+                                <button onClick={() => createOrder()} type="submit" disabled = {!isValid} >Finalizar compra</button>
                             </div>
                         </div>
                     </form>

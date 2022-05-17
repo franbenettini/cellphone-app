@@ -37,8 +37,8 @@ const ItemListContainer = (props) => {
             show ?
                 (products.length > 0 ?
                     <>  
+                    
                         <h2 className='greeting'>{props.greeting}</h2>
-                        <h2 className='greeting'>{categoryId}</h2>
                         <ItemList products={products}/>
                     </>
                     : 

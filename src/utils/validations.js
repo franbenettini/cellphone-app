@@ -1,3 +1,4 @@
+export const nameVal = /^[A-Za-z]+$/i;
 
 
 export const nameValidations = {
@@ -8,6 +9,10 @@ export const nameValidations = {
     required: {
         value: true,
         message: 'Este campo es requerido',
+    },
+    pattern: {
+        value: nameVal,
+        message: 'Este campo debe tener un nombre valido',
     }
 };
 
@@ -27,7 +32,6 @@ export const emailValidations = {
         message: 'Este campo debe tener un correo valido'
     }
 };
-
 
 export const direccionValidations = {
     required: {

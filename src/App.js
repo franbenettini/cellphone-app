@@ -18,7 +18,7 @@ const App = () => {
     <div>
       <Helmet>
         <title>Smart Shop</title>
-        <link rel="icon" href="./images/favicon.png" />
+        <link rel="icon" href="./images/favicon.png"/>
       </Helmet>
       <CartContextProvider>
         <BrowserRouter>

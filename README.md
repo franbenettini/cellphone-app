@@ -30,6 +30,7 @@ npm start
  - [React-toastify](https://www.npmjs.com/package/react-toastify) - Utilizacion en las notificaciones del sitio
  - [React-hook-form](https://react-hook-form.com) - Utilizacion en el formulario del sitio
  - [React-bootstrap](https://react-bootstrap.github.io) - Utilizacion en el Navbar
+ - [React-helmet](https://www.npmjs.com/package/react-helmet) - Utilizacion para editar los head del html
  - [firebase](https://firebase.google.com/?hl=es) - Base de Datos
  
 

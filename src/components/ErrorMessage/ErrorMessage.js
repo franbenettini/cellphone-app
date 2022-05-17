@@ -2,9 +2,9 @@ import './ErrorMessage.css'
 
 const ErrorMessage = ({message}) => {
     return (
-        <p className="errorMessage">
+        <span className="errorMessage">
             {message}
-        </p>
+        </span>
     )
 }
 
